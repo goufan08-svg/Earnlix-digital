@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earnlix Digital — Gagne entre 5 000 et 10 000 FCFA par jour</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #A855F7;
+      --purple-glow: rgba(124, 58, 237, 0.25);
+      --gold: #F5C842;
+      --gold-dark: #C99E1A;
+      --dark: #0D0D12;
+      --dark2: #13131A;
+      --dark3: #1C1C28;
+      --text: #EDECFF;
+      --text-muted: #B0AECF;
+      --white: #FFFFFF;
+      --green: #22C55E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,13,18,0.90);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.35rem;
+      background: linear-gradient(90deg, var(--purple-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px var(--purple-glow);
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 24px 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: 30%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 100px; right: 10%;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.4);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple-light);
+      margin-bottom: 28px;
+      letter-spacing: 0.03em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .highlight-gold { color: var(--gold); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 42px;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 44px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 36px var(--purple-glow);
+    }
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 56px rgba(124,58,237,0.45);
+    }
+
+    /* STATS ANIMÉS */
+    .hero-stats {
+      display: flex;
+      gap: 52px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 90px;
+      display: inline-block;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(124,58,237,0.15);
+      margin: 0;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 24px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--purple-light);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      background: rgba(124,58,237,0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(124,58,237,0.25);
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    h2 .hl-purple { color: var(--purple-light); }
+    h2 .hl-gold { color: var(--gold); }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 580px;
+      margin-bottom: 48px;
+      line-height: 1.75;
+    }
+
+    /* TASKS */
+    .tasks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .task-card {
+      background: var(--dark3);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 26px 16px;
+      text-align: center;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .task-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .task-card:hover {
+      border-color: var(--purple-light);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(124,58,237,0.2);
+    }
+    .task-card:hover::before { opacity: 1; }
+
+    .task-day {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--purple-light);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .task-icon { font-size: 2rem; margin-bottom: 10px; }
+    .task-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .tasks-note {
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .tasks-note strong { color: var(--green); }
+
+    /* BENEFITS */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-card {
+      background: var(--dark3);
+      border: 1px solid rgba(124,58,237,0.18);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .benefit-card:hover {
+      border-color: rgba(124,58,237,0.5);
+      transform: translateY(-3px);
+    }
+    .benefit-card.featured {
+      border-color: rgba(245,200,66,0.3);
+      background: linear-gradient(135deg, var(--dark3), rgba(245,200,66,0.04));
+    }
+    .benefit-card.featured:hover { border-color: var(--gold-dark); }
+
+    .benefit-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .benefit-title {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--white);
+      margin-bottom: 7px;
+    }
+    .benefit-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      background: var(--dark3);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .testimonial-card:hover { border-color: var(--purple-light); }
+
+    .testimonial-amount {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.88rem; color: white; flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
+    .author-tag { font-size: 0.75rem; color: var(--green); }
+
+    /* APPS */
+    .apps-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .app-pill {
+      background: var(--dark3);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .app-pill:hover { border-color: var(--purple-light); color: var(--white); }
+
+    /* WHATSAPP BANNER */
+    .wa-banner {
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1030 100%);
+      border: 1px solid rgba(124,58,237,0.4);
+      border-radius: 22px;
+      padding: 48px 44px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .wa-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wa-icon { font-size: 3.2rem; flex-shrink: 0; position: relative; }
+    .wa-content { flex: 1; min-width: 220px; position: relative; }
+    .wa-content h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .wa-content p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.2s;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+    .wa-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* CTA FINAL */
+    .cta-section {
+      text-align: center;
+      background: var(--dark2);
+      border-top: 1px solid rgba(124,58,237,0.15);
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 { margin-bottom: 16px; position: relative; }
+    .cta-section p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 44px;
+      font-size: 1rem;
+      position: relative;
+      line-height: 1.75;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: white;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 18px 56px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 44px var(--purple-glow);
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 64px rgba(124,58,237,0.55);
+    }
+
+    .cta-note { font-size: 0.82rem; color: var(--text-muted); position: relative; }
+
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      font-size: 0.8rem;
+      color: #555;
+      border-top: 1px solid rgba(124,58,237,0.1);
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(124,58,237,0.5); }
+      70% { box-shadow: 0 0 0 18px rgba(124,58,237,0); }
+      100% { box-shadow: 0 0 0 0 rgba(124,58,237,0); }
+    }
+    .pulse { animation: pulse-ring 2.2s infinite; }
+
+    @media (max-width: 600px) {
+      .wa-banner { padding: 32px 24px; }
+      .hero-stats { gap: 28px; }
+      nav { padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Earnlix Digital</div>
+  <a href="https://earnlixdigital.com/register/winstone" target="_blank" class="nav-cta">Créer mon compte →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🔥 Plateforme de marketing d'affiliation digitale</div>
+  <h1>Gagne entre <span class="highlight-gold">5 000</span> et <span class="highlight-gold">10 000 FCFA</span> par jour depuis chez toi</h1>
+  <p>Rejoins Earnlix Digital — tâches quotidiennes rémunérées, commissions sur produits digitaux, formations exclusives et bien plus encore.</p>
+  <a href="https://earnlixdigital.com/register/winstone" target="_blank" class="hero-cta pulse">
+    👉 Créer mon compte gratuitement
+  </a>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" data-target="10000" data-suffix=" FCFA/j" data-prefix="">0</div>
+      <div class="stat-label">Potentiel journalier</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="100000" data-suffix=" FCFA" data-prefix="+">0</div>
+      <div class="stat-label">Générés par mes élèves</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="5" data-suffix=" jours" data-prefix="">0</div>
+      <div class="stat-label">De tâches par semaine</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- TÂCHES -->
+<section>
+  <div class="section-tag">Programme hebdomadaire</div>
+  <h2>Des tâches quotidiennes simples — <span class="hl-purple">et tu es payé</span></h2>
+  <p class="subtitle">Chaque jour de la semaine, tu accomplis une mission rapide depuis ton téléphone. Tu fais ta tâche, tu touches ta rémunération. C'est aussi simple que ça.</p>
+  <div class="tasks-grid">
+    <div class="task-card">
+      <div class="task-day">Lundi</div>
+      <div class="task-icon">🧠</div>
+      <div class="task-name">Trivia Question</div>
+    </div>
+    <div class="task-card">
+      <div class="task-day">Mardi</div>
+      <div class="task-icon">🎵</div>
+      <div class="task-name">TikTok Vidéo</div>
+    </div>
+    <div class="task-card">
+      <div class="task-day">Mercredi</div>
+      <div class="task-icon">▶️</div>
+      <div class="task-name">Watch Vidéo</div>
+    </div>
+    <div class="task-card">
+      <div class="task-day">Jeudi</div>
+      <div class="task-icon">⭐</div>
+      <div class="task-name">Tâche du jour</div>
+    </div>
+    <div class="task-card">
+      <div class="task-day">Vendredi</div>
+      <div class="task-icon">📋</div>
+      <div class="task-name">Survey</div>
+    </div>
+  </div>
+  <div class="tasks-note">
+    💡 <strong>Tu fais ta tâche → tu es payé.</strong> Pas de condition cachée. Pas de délai abusif. Juste du travail simple et une rémunération directe.
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- AVANTAGES -->
+<section>
+  <div class="section-tag">Ce que tu obtiens</div>
+  <h2>Une plateforme complète, <span class="hl-gold">pas juste un job</span></h2>
+  <p class="subtitle">En plus de tes revenus quotidiens, tu accèdes à des formations et opportunités qui peuvent transformer ta vie financière.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card featured">
+      <div class="benefit-icon">🛒</div>
+      <div>
+        <div class="benefit-title">Produits digitaux & commissions</div>
+        <div class="benefit-desc">Recommande des produits digitaux à ton réseau et touche des commissions à chaque vente. Un revenu passif qui tourne 24h/24.</div>
+      </div>
+    </div>
+    <div class="benefit-card featured">
+      <div class="benefit-icon">🔗</div>
+      <div>
+        <div class="benefit-title">Programme d'affiliation</div>
+        <div class="benefit-desc">Partage ton lien de parrainage. À chaque inscription, tu touches automatiquement une commission.</div>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📈</div>
+      <div>
+        <div class="benefit-title">Apprends le trading</div>
+        <div class="benefit-desc">Maîtrise les bases des marchés financiers et fais fructifier ton argent grâce à nos formations complètes en trading.</div>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🇨🇳</div>
+      <div>
+        <div class="benefit-title">Achats en Chine</div>
+        <div class="benefit-desc">Découvre comment sourcer et acheter des produits directement en Chine pour les revendre et générer des marges importantes.</div>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🎵</div>
+      <div>
+        <div class="benefit-title">Compte TikTok monétisé</div>
+        <div class="benefit-desc">Apprends à créer et monétiser un compte TikTok dès aujourd'hui. Génère des revenus grâce à tes vidéos et ton audience.</div>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🛍️</div>
+      <div>
+        <div class="benefit-title">Boutique en ligne</div>
+        <div class="benefit-desc">Lance ta boutique e-commerce et vends en ligne grâce à nos guides pas à pas, accessibles à tous les niveaux.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- APPS PREMIUM -->
+<section>
+  <div class="section-tag">Applications incluses</div>
+  <h2>Des apps premium <span class="hl-purple">à ta disposition</span></h2>
+  <p class="subtitle">En rejoignant Earnlix, tu débloques immédiatement l'accès à des outils premium sans frais supplémentaires.</p>
+  <div class="apps-row">
+    <div class="app-pill"><span>🎬</span> Netflix Illimité</div>
+    <div class="app-pill"><span>✏️</span> Cappro</div>
+    <div class="app-pill"><span>🎨</span> Logomaker</div>
+    <div class="app-pill"><span>🤖</span> Chatbox AI</div>
+    <div class="app-pill"><span>📚</span> Formations exclusives</div>
+    <div class="app-pill"><span>⚡</span> Et bien d'autres...</div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TÉMOIGNAGES -->
+<section>
+  <div class="section-tag">Résultats réels</div>
+  <h2>Mes élèves ont <span class="hl-gold">prouvé que ça marche</span></h2>
+  <p class="subtitle">Ce ne sont pas des promesses. Voici ce que des personnes ordinaires ont accompli grâce aux bonnes stratégies et à l'accompagnement.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-amount">+50 000 FCFA</div>
+      <div class="testimonial-text">"Je ne croyais pas vraiment au début. Mais en suivant les stratégies de coaching, j'ai dépassé les 50 000 FCFA en quelques semaines seulement."</div>
+      <div class="testimonial-author">
+        <div class="avatar">A</div>
+        <div>
+          <div class="author-name">Amara K.</div>
+          <div class="author-tag">✅ Membre vérifié</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-amount">+100 000 FCFA</div>
+      <div class="testimonial-text">"Grâce au programme d'affiliation et aux tâches quotidiennes, j'ai franchi la barre des 100 000 FCFA. Ce business est vraiment sérieux."</div>
+      <div class="testimonial-author">
+        <div class="avatar">M</div>
+        <div>
+          <div class="author-name">Moussa D.</div>
+          <div class="author-tag">✅ Membre vérifié</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-amount">Revenu régulier</div>
+      <div class="testimonial-text">"C'est devenu ma principale source de revenu. Le coaching m'a vraiment aidé à être constant et à appliquer les bonnes stratégies."</div>
+      <div class="testimonial-author">
+        <div class="avatar">F</div>
+        <div>
+          <div class="author-name">Fatou B.</div>
+          <div class="author-tag">✅ Membre vérifié</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CHAÎNE WHATSAPP -->
+<section>
+  <div class="wa-banner">
+    <div class="wa-icon">📣</div>
+    <div class="wa-content">
+      <h3>Rejoins ma chaîne WhatsApp</h3>
+      <p>Accède en temps réel aux conseils, stratégies et mises à jour de la plateforme. C'est là que je partage les méthodes qui ont permis à mes élèves de générer entre 50 000 et 100 000 FCFA. Rejoins la chaîne <strong style="color:var(--white)">Projet de juin team winstone 📈</strong>.</p>
+    </div>
+    <a href="https://whatsapp.com/channel/0029VbCu80tF1YlMnnhxuT0K" target="_blank" class="wa-btn">
+      💬 Rejoindre la chaîne
+    </a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+  <div class="section-tag" style="margin-bottom:16px;">Prêt à te lancer ?</div>
+  <h2>Commence à <span class="hl-purple">gagner dès aujourd'hui</span></h2>
+  <p>Crée ton compte Earnlix Digital maintenant et accède immédiatement aux tâches rémunérées, formations et applications premium.</p>
+  <a href="https://earnlixdigital.com/register/winstone" target="_blank" class="cta-btn">
+    🚀 Je crée mon compte maintenant
+  </a>
+  <br />
+  <span class="cta-note">✅ Inscription rapide &nbsp;·&nbsp; 🔒 Lien sécurisé &nbsp;·&nbsp; 💬 Chaîne WhatsApp incluse</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Earnlix Digital — Plateforme de marketing d'affiliation digitale. Tous droits réservés.
+</footer>
+
+<script>
+  // Compteur animé pour les stats
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      current = Math.min(Math.round(increment * step), target);
+
+      // Format numbers with spaces
+      let display = current.toLocaleString('fr-FR');
+      el.textContent = prefix + display + suffix;
+
+      if (step >= steps) clearInterval(timer);
+    }, duration / steps);
+  }
+
+  // Déclenche l'animation quand visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
